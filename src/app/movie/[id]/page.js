@@ -16,6 +16,7 @@ export default async function MoviePage({ params }) {
   return (
     <main className="bg-gray-100 min-h-screen py-10 px-4">
       <section className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8 bg-white p-6 rounded-xl shadow-md">
+        
         <div className="w-full lg:w-1/3">
           <Image
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
