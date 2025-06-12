@@ -15,9 +15,18 @@ export default function HomeContainer() {
   }, []);
 
   return (
-    <section>
-      <h1 className="text-2xl font-bold mb-4">Películas Trending</h1>
-      <MoviesGrid movies={movies} />
-    </section>
+    <main className="bg-gray-50 min-h-screen py-10 px-4">
+      <section className="max-w-7xl mx-auto">
+        <h1 className="text-3xl font-bold text-lime-700 mb-6 border-b pb-2 border-lime-300">
+          🎥 Películas en Tendencia
+        </h1>
+
+        {movies.length === 0 ? (
+          <p className="text-gray-500 text-center mt-10">Cargando películas...</p>
+        ) : (
+          <MoviesGrid movies={movies} />
+        )}
+      </section>
+    </main>
   );
 }
