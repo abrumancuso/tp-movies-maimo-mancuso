@@ -13,9 +13,16 @@ async function getMovie(id) {
 export default async function MoviePage({ params }) {
   const movie = await getMovie(params.id);
 
+  const backgroundUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path || movie.poster_path}`;
+
   return (
-    <main className="bg-gray-100 min-h-screen py-10 px-4">
-      <section className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8 bg-white p-6 rounded-xl shadow-md">
+    <main className="relative min-h-screen">
+      <div
+        className="fixed inset-0 -z-10 bg-cover bg-center filter blur-sm brightness-50"
+        style={{ backgroundImage: `url(${backgroundUrl})` }}
+      />
+
+      <section className="relative max-w-5xl mx-auto flex flex-col lg:flex-row gap-8 bg-white bg-opacity-90 p-6 rounded-xl shadow-md mt-10">
         
         <div className="w-full lg:w-1/3">
           <Image
