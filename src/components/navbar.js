@@ -19,6 +19,11 @@ const Navbar = () => {
                 Géneros
               </Link>
             </li>
+            <li>
+              <Link href="/favoritos" className="hover:text-lime-400 transition">
+                Favoritos
+              </Link>
+            </li> 
           </ul>
         </nav>
       </div>

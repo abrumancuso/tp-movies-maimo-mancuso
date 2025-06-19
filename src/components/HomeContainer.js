@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import MoviesGrid from "./MoviesGrid";
 
+
 const API_KEY = "8d155a452063365b70d7e38e2609b662";
 
 export default function HomeContainer() {
@@ -22,11 +23,13 @@ export default function HomeContainer() {
         </h1>
 
         {movies.length === 0 ? (
-          <p className="text-gray-500 text-center mt-10">Cargando películas...</p>
-        ) : (
-          <MoviesGrid movies={movies} />
-        )}
-      </section>
+            <div className="flex justify-center items-center h-96">
+              <div className="w-10 h-10 border-4 border-lime-500 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          ) : (
+            <MoviesGrid movies={movies} />
+          )}
+        </section>
     </main>
   );
 }

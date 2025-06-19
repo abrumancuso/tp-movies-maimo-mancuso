@@ -7,11 +7,21 @@ export const AppContextProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
   const handleAddToFavorites = ({ title, poster_path, id }) => {
-    setFavorites((favorites) => [...favorites, { title, poster_path, id }]);
+    setFavorites((prevFavorites) => {
+      const exists = prevFavorites.find((fav) => fav.id === id);
+      if (exists) return prevFavorites;
+      return [...prevFavorites, { title, poster_path, id }];
+    });
+  };
+
+  const handleRemoveFromFavorites = (id) => {
+    setFavorites((prevFavorites) =>
+      prevFavorites.filter((fav) => fav.id !== id)
+    );
   };
 
   return (
-    <AppContext.Provider value={{ favorites, handleAddToFavorites }}>
+    <AppContext.Provider value={{ favorites, handleAddToFavorites, handleRemoveFromFavorites }}>
       {children}
     </AppContext.Provider>
   );
